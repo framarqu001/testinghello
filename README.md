@@ -1,27 +1,61 @@
-# User Greeting Page
+# To-Do List Web Application
 
-This repository contains a simple HTML page that greets users without using the word "hello".
+This repository contains a Python web application for managing a to-do list.
 
 ## Files
 
-- `index.html`: The main HTML file containing the user greeting
-- `test_greeting.js`: A Node.js test script to verify the HTML greeting functionality
+- `app.py`: The main Python Flask application
+- `templates/index.html`: The HTML template for the to-do list interface
+- `static/`: Directory for static assets (CSS, JavaScript)
+- `test_todo.py`: Python unit tests for the to-do list functionality
+- `index.html`: Original greeting page (legacy)
+- `test_greeting.js`: Original Node.js test script (legacy)
+
+## Requirements
+
+- Python 3.6 or higher
+- Flask
+
+## Installation
+
+1. Install the required dependencies:
+   ```
+   pip install flask
+   ```
 
 ## How to Use
 
-1. Open `index.html` in any web browser to see the greeting
+1. Run the Flask application:
+   ```
+   python app.py
+   ```
+2. Open your web browser and navigate to `http://127.0.0.1:5000/`
+3. Use the interface to:
+   - Add new tasks
+   - Mark tasks as complete/incomplete
+   - Delete tasks
+
+## Features
+
+- Add new tasks to your to-do list
+- Mark tasks as complete or incomplete
+- Delete tasks you no longer need
+- Clean, responsive user interface
 
 ## Testing
 
-To run the tests:
-
-1. Make sure you have Node.js installed
-2. Run the test script:
-   ```
-   node test_greeting.js
-   ```
+To run the Python tests:
+```
+python -m unittest test_todo.py
+```
 
 The tests verify that:
-- The HTML file exists
-- The HTML contains a greeting
-- The HTML does not contain the word "hello"
+- The application loads correctly
+- Tasks can be added
+- Tasks can be marked as complete
+- Tasks can be deleted
+
+To run the legacy Node.js tests:
+```
+node test_greeting.js
+```
