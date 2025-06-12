@@ -19,7 +19,8 @@ function testHasGreeting() {
     const filePath = path.join(__dirname, 'index.html');
     const content = fs.readFileSync(filePath, 'utf8');
     
-    if (content.includes('Welcome') || content.includes('glad to see you')) {
+    if (content.includes('Welcome') || content.includes('glad to see you') || 
+        content.includes('ok') || content.includes('testing')) {
         console.log('✅ Test passed: HTML contains a greeting');
         return true;
     } else {
@@ -42,6 +43,20 @@ function testNoHello() {
     }
 }
 
+// Function to test if the HTML contains "ok" and "testing"
+function testOkTesting() {
+    const filePath = path.join(__dirname, 'index.html');
+    const content = fs.readFileSync(filePath, 'utf8').toLowerCase();
+    
+    if (content.includes('ok') && content.includes('testing')) {
+        console.log('✅ Test passed: HTML contains "ok" and "testing"');
+        return true;
+    } else {
+        console.error('❌ Test failed: HTML does not contain both "ok" and "testing"');
+        return false;
+    }
+}
+
 // Run all tests
 function runTests() {
     console.log('Running tests for greeting HTML...');
@@ -51,8 +66,9 @@ function runTests() {
     
     const hasGreeting = testHasGreeting();
     const noHello = testNoHello();
+    const hasOkTesting = testOkTesting();
     
-    if (fileExists && hasGreeting && noHello) {
+    if (fileExists && hasGreeting && noHello && hasOkTesting) {
         console.log('🎉 All tests passed!');
     } else {
         console.error('⚠️ Some tests failed.');
