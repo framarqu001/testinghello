@@ -1,27 +1,61 @@
-# User Greeting Page
+# Todo Web Application
 
-This repository contains a simple HTML page that greets users without using the word "hello".
+A simple and elegant to-do list web application built with Python Flask.
 
-## Files
+## Features
 
-- `index.html`: The main HTML file containing the user greeting
-- `test_greeting.js`: A Node.js test script to verify the HTML greeting functionality
+- Add new tasks to your to-do list
+- Mark tasks as complete/incomplete
+- Delete tasks
+- RESTful API for programmatic access
 
-## How to Use
+## Files and Structure
 
-1. Open `index.html` in any web browser to see the greeting
+- `app.py`: Main Flask application with routes and database models
+- `templates/index.html`: HTML template for the to-do list interface
+- `static/css/style.css`: CSS styling for the application
+- `static/js/script.js`: JavaScript for client-side interactivity
+- `test_todo.py`: Python tests for the application
+- `requirements.txt`: Python dependencies
+
+## Setup and Installation
+
+1. Install Python dependencies:
+   ```
+   pip install -r requirements.txt
+   ```
+
+2. Run the Flask application:
+   ```
+   python app.py
+   ```
+
+3. Open your browser and navigate to `http://localhost:5000`
+
+## API Endpoints
+
+The application provides the following API endpoints:
+
+- `GET /api/todos`: Get all to-do items
+- `POST /api/todos`: Create a new to-do item
+- `PUT /api/todos/<id>`: Update a to-do item
+- `DELETE /api/todos/<id>`: Delete a to-do item
 
 ## Testing
 
 To run the tests:
 
-1. Make sure you have Node.js installed
-2. Run the test script:
+1. Make sure you have pytest installed:
    ```
-   node test_greeting.js
+   pip install pytest
+   ```
+
+2. Run the tests:
+   ```
+   pytest test_todo.py
    ```
 
 The tests verify that:
-- The HTML file exists
-- The HTML contains a greeting
-- The HTML does not contain the word "hello"
+- The application routes work correctly
+- To-do items can be added, updated, and deleted
+- The API endpoints function as expected
