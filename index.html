@@ -24,12 +24,36 @@
         h1 {
             color: #333;
         }
+        .action-button {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 10px 2px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .action-button:hover {
+            background-color: #45a049;
+        }
     </style>
 </head>
 <body>
     <div class="greeting-container">
-        <h1>Welcome!</h1>
+        <h1>Hi there! Welcome!</h1>
         <p>We're glad to see you here.</p>
+        <button id="doSomethingBtn" class="action-button">Do something</button>
     </div>
+    
+    <script>
+        document.getElementById('doSomethingBtn').addEventListener('click', function() {
+            alert('You did something!');
+        });
+    </script>
 </body>
 </html>

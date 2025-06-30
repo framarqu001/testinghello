@@ -19,7 +19,7 @@ function testHasGreeting() {
     const filePath = path.join(__dirname, 'index.html');
     const content = fs.readFileSync(filePath, 'utf8');
     
-    if (content.includes('Welcome') || content.includes('glad to see you')) {
+    if (content.includes('Welcome') || content.includes('glad to see you') || content.includes('Hi there')) {
         console.log('✅ Test passed: HTML contains a greeting');
         return true;
     } else {
@@ -42,6 +42,20 @@ function testNoHello() {
     }
 }
 
+// Function to test if the HTML contains "Do something" functionality
+function testDoSomething() {
+    const filePath = path.join(__dirname, 'index.html');
+    const content = fs.readFileSync(filePath, 'utf8');
+    
+    if (content.includes('Do something') && content.includes('doSomethingBtn')) {
+        console.log('✅ Test passed: HTML contains "Do something" functionality');
+        return true;
+    } else {
+        console.error('❌ Test failed: HTML does not contain "Do something" functionality');
+        return false;
+    }
+}
+
 // Run all tests
 function runTests() {
     console.log('Running tests for greeting HTML...');
@@ -51,8 +65,9 @@ function runTests() {
     
     const hasGreeting = testHasGreeting();
     const noHello = testNoHello();
+    const hasDoSomething = testDoSomething();
     
-    if (fileExists && hasGreeting && noHello) {
+    if (fileExists && hasGreeting && noHello && hasDoSomething) {
         console.log('🎉 All tests passed!');
     } else {
         console.error('⚠️ Some tests failed.');
